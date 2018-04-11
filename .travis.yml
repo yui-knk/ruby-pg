@@ -9,7 +9,7 @@ env:
   - "PGVERSION=9.1.19-3-linux-x64 PATH=\"/opt/PostgreSQL/9.1/bin:$PATH\""
   - "PGCROSS=true"
 addons:
-  postgresql: "9.5"
+  postgresql: "10.1"
 matrix:
   # Test cross compilation only with 2.3
   exclude:
