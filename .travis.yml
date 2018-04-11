@@ -1,13 +1,9 @@
 sudo: required
-services:
-  - docker
+os: osx
 language: ruby
 rvm:
-  - "2.2"
-  - "2.3.0"
   - "2.5.0"
   - "2.5.1"
-  - rbx
 env:
   - "PGVERSION=9.5.0-1-linux-x64 PATH=\"/opt/PostgreSQL/9.5/bin:$PATH\""
   - "PGVERSION=9.1.19-3-linux-x64 PATH=\"/opt/PostgreSQL/9.1/bin:$PATH\""
