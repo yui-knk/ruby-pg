@@ -30,9 +30,15 @@ before_install:
   - gem install bundler
   - bundle install
   # Download and install postgresql version to test against in /opt (for non-cross compile only)
-  - "if [ -z \"$PGCROSS\" ]; then
-      wget http://get.enterprisedb.com/postgresql/postgresql-$PGVERSION.run &&
-      chmod +x postgresql-$PGVERSION.run &&
-      sudo ./postgresql-$PGVERSION.run --mode unattended --unattendedmodeui minimal;
-    fi"
-script: "if [ -z \"$PGCROSS\" ]; then rake compile test; else rake gem:windows; fi"
+  - |
+    if [ -z "$PGCROSS" ]; then
+      wget http://get.enterprisedb.com/postgresql/postgresql-$PGVERSION.run && \
+        chmod +x postgresql-$PGVERSION.run && \
+        sudo ./postgresql-$PGVERSION.run --extract-only 1 --mode unattended
+    fi
+script: |
+  if [ -z "$PGCROSS" ]; then
+    rake compile test
+  else
+    rake gem:windows
+  fi
