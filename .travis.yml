@@ -6,6 +6,7 @@ rvm:
   - "2.2"
   - "2.4.2"
   - "2.5"
+  - "2.5.1"
   - ruby-head
 env:
   - "PGVERSION=10.0-1-linux-x64 PATH=\"/opt/PostgreSQL/10/bin:$PATH\""
@@ -17,6 +18,8 @@ matrix:
     - rvm: "2.2"
       env: "PGCROSS=true"
     - rvm: "2.5"
+      env: "PGCROSS=true"
+    - rvm: "2.5.1"
       env: "PGCROSS=true"
     - rvm: ruby-head
       env: "PGCROSS=true"
